@@ -9,12 +9,15 @@ export default class TextAnimation extends ScrollBase {
 
     onScroll(scrollY) {
         // console.log(scrollY, this.end, this.range)
-        if (scrollY < this.end) {
-            const percentage = Math.min(this.percentage(scrollY, this.end), 100)
+        if (scrollY < this.start) {
+            this.writeText(null, 1)
+        } else if (scrollY > this.start && scrollY < this.end) {
+            const current = scrollY - this.start
+            const percentage = Math.min(this.percentage(current, this.end), 100)
             const step = Math.round(this.mapRange(percentage, 0, 100, 0, this.textTotal))
             this.writeText(step)
         } else {
-            this.writeText(null, true)
+            this.writeText(null, 2)
         }
 
     }
@@ -35,15 +38,17 @@ export default class TextAnimation extends ScrollBase {
         const words = ['H','E','L','L','O','W','O','R','L','D']
         const steps = [9,15,28,41,57,81,97,116,129,134]
 
-        if (all) {
+        if (all && all == 1) {
+            elems.forEach((el, index) => {
+                el.innerText = '_'
+            })
+        } else if (all && all == 2) {
             elems.forEach((el, index) => {
                 el.innerText = words[index]
             })
         } else {
             steps.forEach((item, index) => {
-                if (!step) {
-                    t1.innerText = '_'
-                } else if (step < item && step > (steps[index - 1] || 0)) {
+                if (step < item && step > (steps[index - 1] || 0)) {
                     const prevs = elems.slice(0, index)
                     prevs.forEach((_, pIndex) => {
                         elems[pIndex].innerText = words[pIndex]

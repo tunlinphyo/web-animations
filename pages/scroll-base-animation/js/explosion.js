@@ -3,6 +3,7 @@ import ScrollBase from "./scroll-base"
 export default class Explosion extends ScrollBase {
     constructor(elem) {
         super(elem)
+        this.box = this.elem.querySelector('.explotion-box')
     }
 
     onScroll(scrollY) {
@@ -34,7 +35,6 @@ export default class Explosion extends ScrollBase {
     }
 
     onResize() {
-        this.box = this.elem.querySelector('.explotion-box')
         this.boxWidth = this.box?.clientWidth || 0
     }
 }
