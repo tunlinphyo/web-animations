@@ -1,0 +1,20 @@
+
+/* Color */
+.color {
+  min-height: 3000px;
+  border: none;
+}
+.color-card {
+  position: sticky;
+  top: var(--top);
+  width: 100%;
+  height: var(--height);
+  background-color: var(--color-1);
+  border-radius: var(--radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  color: #fff;
+}

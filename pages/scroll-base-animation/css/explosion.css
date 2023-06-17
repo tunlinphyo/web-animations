@@ -1,0 +1,43 @@
+/* Explosion */
+.explotion {
+  min-height: 3000px;
+  border: none;
+}
+.explotion-card {
+  position: sticky;
+  top: var(--top);
+  width: 100%;
+  height: var(--height);
+  background-color: var(--color-1);
+  border-radius: var(--radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+h3 {
+  font-size: 1.5rem;
+}
+.explotion-box {
+  --size: 450px;
+  width: var(--size);
+  height: var(--size);
+  background-image: url(../../public/assets/images/Explosion.png);
+  background-size: calc(100% * 5);
+  background-repeat: no-repeat;
+  background-position: 0% 25%;
+}
+@media (max-width: 992px) {
+  .explotion-box {
+      --size: 400px;
+  }
+
+}
+@media (max-width: 500px) {
+  .explotion-card {
+      flex-direction: column;
+  }
+  .explotion-box {
+      --size: 300px;
+  }
+}

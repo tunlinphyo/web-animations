@@ -1,0 +1,27 @@
+
+/* Text Animation */
+.text-animation {
+  min-height: 3000px;
+  border: none;
+}
+.text-animation-card {
+  width: 100%;
+  position: sticky;
+  top: var(--top);
+  width: 100%;
+  height: var(--height);
+  background-color: var(--color-1);
+  border-radius: var(--radius);
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: clamp(4rem, 12vw, 8rem);
+  color: var(--color-6);
+  font-weight: 800;
+  gap: .2em .2em;
+  text-shadow: 8px 8px 0 #f005;
+}

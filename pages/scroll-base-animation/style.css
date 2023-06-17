@@ -1,0 +1,107 @@
+@import url(./css/text-animation.css);
+@import url(./css/explosion.css);
+@import url(./css/color-animation.css);
+@import url(./css/sticky-card.css);
+@import url(./css/vertical-scroll.css);
+@import url(./css/clip-path.css);
+@import url(./css/active-animation.css);
+
+:root {
+    --color-1: #efe5fd;
+    --color-2: #d4bff9;
+    --color-3: #b794f6;
+    --color-4: #9965f4;
+    --color-5: #7e3ff2;
+    --color-6: #6002ee;
+}
+
+html,
+body {
+    background-color: #fefefe;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+section {
+    width: 100%;
+    max-width: 992px;
+    min-height: 60vh;
+    border-radius: var(--radius);
+    margin: 40px auto;
+    padding: 0 20px;
+    --top: 10vh;
+    --height: 80vh;
+    --radius: 12px;
+}
+
+.card-bg-1 {
+    background-color: var(--color-1);
+}
+
+.card-bg-2 {
+    background-color: var(--color-2);
+}
+
+.card-bg-3 {
+    background-color: var(--color-3);
+}
+
+.card-bg-4 {
+    background-color: var(--color-4);
+}
+
+.card-bg-5 {
+    background-color: var(--color-5);
+}
+
+.card-bg-6 {
+    background-color: var(--color-6);
+}
+
+
+/* HEADER */
+header {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    background-color: #FFF;
+
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    border-bottom: 2px solid var(--color-3);
+}
+
+.header-container {
+    width: 100%;
+    max-width: 1280px;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.header-container h1 {
+    color: var(--color-6);
+    text-transform: uppercase;
+}
+
+/* FOOTER */
+footer {
+    width: 100%;
+    min-height: 40vh;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: var(--color-1);
+    color: var(--color-6);
+}

@@ -1,0 +1,44 @@
+/* Clip-path */
+.clip-path {
+  min-height: 3000px;
+  border: none;
+}
+
+.clip-path-card {
+  position: sticky;
+  top: var(--top);
+  width: 100%;
+  height: var(--height);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.clip-path-card .start,
+.clip-path-card .end {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 800;
+}
+
+.clip-path-card .start {
+  z-index: 0;
+  background-color: #efe5fd;
+  color: #6002ee;
+}
+
+.clip-path-card .start {
+  font-size: clamp(3rem, 8vw, 6rem);
+}
+
+.clip-path-card .end {
+  z-index: 1;
+  background-color: #6002ee;
+  clip-path: circle(0% at 50% 50%);
+}

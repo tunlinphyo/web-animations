@@ -1,0 +1,22 @@
+
+/* Sticky Card */
+.sticky {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 20px;
+}
+.sticky-card {
+  top: var(--top);
+  width: 100%;
+  height: var(--height);
+  border-radius: var(--radius);
+  position: sticky;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(6rem, 15vw, 10rem);
+  font-weight: 800;
+}
