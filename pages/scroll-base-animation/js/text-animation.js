@@ -4,17 +4,18 @@ export default class TextAnimation extends ScrollBase {
     constructor(elem) {
         super(elem)
         this.texts = this.getTexts()
-        this.textTotal = this.texts.length - 1
+        this.textTotal = this.texts.length
     }
 
     onScroll(scrollY) {
         // console.log(scrollY, this.end, this.range)
         if (scrollY < this.start) {
             this.writeText(null, 1)
-        } else if (scrollY > this.start && scrollY < this.end) {
+        } else if (scrollY >= this.start && scrollY <= this.end) {
             const current = scrollY - this.start
-            const percentage = Math.min(this.percentage(current, this.end), 100)
-            const step = Math.round(this.mapRange(percentage, 0, 100, 0, this.textTotal))
+            const percentage = this.percentage(current, this.end)
+            // need to add 2 to text total for total character count don't know why
+            const step = Math.round(this.mapRange(percentage, 0, 100, 0, this.textTotal + 2)) 
             this.writeText(step)
         } else {
             this.writeText(null, 2)
