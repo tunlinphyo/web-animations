@@ -127,7 +127,7 @@ footer {
   height: 100px;
   border-radius: 4px;
   background-color: var(--color-600);
-  transition: width .6s ease, height .6s ease;
+  transition: width .6s ease-out, height .6s ease-out;
 }
 h3 {
   font-size: 1.4rem;
@@ -142,6 +142,7 @@ h3 {
 .card.opened .media {
   width: 150px;
   height: 150px;
+  transition: width .6s ease-in, height .6s ease-in;
 }
 .card.opened h3 {
   font-size: 2rem;
