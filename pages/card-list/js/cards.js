@@ -19,13 +19,15 @@ export default class Cards {
   }
 
   subscribe() {
-      document.addEventListener('scroll', this.handleScroll)
-      window.addEventListener('resize', this.handleResize)
+    window.addEventListener('scroll', this.handleScroll, { passive: true })
+    window.addEventListener('touchmove', this.handleScroll)
+    window.addEventListener('resize', this.handleResize)
   }
 
   unsubscribe() {
-      document.removeEventListener('scroll', this.handleScroll)
-      window.removeEventListener('resize', this.handleResize)
+    window.removeEventListener('scroll', this.handleScroll)
+    window.removeEventListener('touchmove', this.handleScroll)
+    window.removeEventListener('resize', this.handleResize)
   }
 
   _init() {
@@ -57,7 +59,7 @@ export default class Cards {
           
           const top = this._mapRange(percentage, 0, 100, startTop * index * 0.35, window.innerHeight)
           const scale = this._mapRange(percentage, 0, 30 + i, startScale, 1)
-          const rotate = this._mapRange(percentage, 0, 40 + i, -40, 0)
+          const rotate = this._mapRange(percentage, 0, 40, -40, 0)
           
           card.style.transform = `translateY(${(scroll + top)}px) scale(${Math.min(scale, 1)}) perspective(100em) rotateX(${rotate}deg)`
       }) 
