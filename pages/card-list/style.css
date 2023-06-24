@@ -10,6 +10,11 @@
   --primary-800: #262626;
   --primary-900: #000000; */
 
+  --bg: rgb(209, 255, 224);
+  --secondary: rgb(199,194,253);
+  /* --primary: #b6ffcf; */
+  --primary: rgb(209, 255, 224);
+  --border-color: #333;
 
   --primary-50: #e1f4f0;
   --primary-100: #b5e3d9;
@@ -32,6 +37,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 16px;
   line-height: 1.5;
+  background-color: var(--bg);
 }
 
 *,
@@ -44,7 +50,7 @@ header {
   width: 100%;
   height: 60px;
   background-color: #fff;
-  border-bottom: 1px solid var(--primary-600);
+  background-color: var(--bg);
   position: fixed;
   z-index: 9;
   top: 0;
@@ -52,13 +58,15 @@ header {
   justify-content: center;
   align-items: center;
   gap: 12px;
+  border-bottom: 1px solid var(--border-color);
+  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; */
 }
 header h1 {
   font-size: 1.2rem;
   margin: 0;
   text-transform: uppercase;
   letter-spacing: 6px;
-  color: var(--primary-800);
+  color: #000;
 }
 .github {
     width: 42px;
@@ -78,7 +86,15 @@ main {
 section {
   width: 100%;
   max-width: 600px;
+  margin: 0 auto;
 }
+@media (min-width: 768px) {
+  section {
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+  }
+}
+
 ul {
   margin: 0;
   padding: 20px;
@@ -96,18 +112,26 @@ ul {
 
 .card {
   width: calc(100% - 40px);
-  height: 0;
-  padding-top: 60%;
+  max-width: 500px;
   border-radius: 15px;
-  background-color: var(--primary-300);
+  background-color: var(--primary);
 
-  position: absolute;
-  top: 20px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 2px;
+  position: fixed;
+  z-index: 5;
+  top: 4vh;
+  /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 2px; */
+  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; */
+  border: 1px solid var(--border-color);
 
   overflow: hidden;
 
-  --spacing: clamp(20px, 5vw, 30px)
+  --spacing: clamp(20px, 5vw, 30px);
+  transition: transform .1s linear;
+}
+.ratio {
+  width: 100%;
+  height: 0;
+  padding-top: 65%;
 }
 .card-inner {
   position: absolute;
@@ -122,11 +146,12 @@ ul {
   font-size: clamp(1rem, 5vw, 2rem);
   font-weight: 800;
   letter-spacing: 4px;
-  color: var(--primary-50);
+  color: #000; 
+   /* var(--primary-50); */
   text-transform: uppercase;
-  text-shadow: 0 0 1px var(--primary-900);
+  /* text-shadow: 0 0 1px var(--primary-900); */
 }
-.card:nth-child(1) {
+/* .card:nth-child(1) {
   background-color: var(--primary-900);
 }
 .card:nth-child(2) {
@@ -147,6 +172,12 @@ ul {
 .card:nth-child(7) {
   background-color: var(--primary-300);
 }
+.card:nth-child(8) {
+  background-color: var(--primary-200);
+}
+.card:nth-child(9) {
+  background-color: var(--primary-100);
+} */
 
 .card::before,
 .card::after {
@@ -162,6 +193,7 @@ ul {
   border-radius: 100%;
   top: 15%;
   left: 0;
+  background-color: #00000019;
 }
 .card::after {
   width: 600px;
@@ -179,7 +211,7 @@ ul {
   width: 40px;
   height: 40px;
   border-radius: 100%;
-  background-color: #fff5;
+  background-color: #0005;
 }
 .card-inner::before {
   top: var(--spacing);
@@ -188,4 +220,29 @@ ul {
 .card-inner::after {
   top: var(--spacing);
   left: calc(var(--spacing) + 20px);
+}
+
+.footer {
+  position: fixed;
+  z-index: 99;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+}
+
+.dir-toggle {
+  height: 32px;
+  font-size: .8rem;
+  text-transform: uppercase;
+  padding: 0 30px;
+  border-radius: 32px;
+  background-color: var(--secondary);
+  color: #000;
+  border: 1px solid var(--border-color);
+  outline: none;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  white-space: nowrap;
+}
+.dir-toggle:hover {
+  background-color: var(--secondary);
 }
